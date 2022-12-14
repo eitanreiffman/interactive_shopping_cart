@@ -133,12 +133,11 @@ class Cart:
         print("\nYour cart has been cleared.\n\n")
 
     def show_cart(self, item, quantity, price):
-        print("\nHere's a current overview of your shopping cart.\n\n"
-            "Food Item\t\t\tPrice\n")
+        print("Food Item\t\t\tPrice\n")
         for item, price in self.user_cart.items():
             if len(item) < 8:
                 print(f"{price[1]} {item.title()}\t\t\t\t${price[0]:.2f}")
-            elif len(item) > 16:
+            elif len(item) > 14:
                 print(f"{price[1]} {item.title()}\t\t${price[0]:.2f}")
             else:
                 print(f"{price[1]} {item.title()}\t\t\t${price[0]:.2f}")
@@ -312,6 +311,7 @@ def shopping_cart(user_cart):
         if len(new_cart.user_cart) == 0:
             print("\nYour cart is currently empty")
         else:
+            print("\nHere's a current overview of your shopping cart.\n\n")
             new_cart.show_cart(item, quantity, price)
 
 
@@ -319,7 +319,7 @@ def shopping_cart(user_cart):
                     "To explore other options, enter any other key: ").lower()
 
     print(f"\nThank you {username} for shopping with us!\n")
-    print(f"\nHere is your receipt:\n")
+    print(f"\nHere is your receipt:")
     new_cart.show_cart(item, quantity, price)
 
 user_cart2 = {}
